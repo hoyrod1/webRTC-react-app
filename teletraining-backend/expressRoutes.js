@@ -14,7 +14,7 @@ const secretLink = "ihadhdfH283JWT";
 // This user route will be for CLIENT 1 to make a "offer"
 // Calender/scheduling  APP will email this link to CLIENT 2
 app.get("/user-link", (req, res) => {
-  // personal data for the end-users appointment //
+  // personal data for the end-users with the appointment //
   const apptData = {
     professionalFullName: "Kaden St. Cloud Full Stack Web Developer",
     apptDate: Date.now(),
@@ -30,9 +30,12 @@ app.get("/user-link", (req, res) => {
 //--------------------------------------------------------//
 
 //--------------------------------------------------------//
-app.get("/validate-link", (req, res) => {
-  const token = req.query.token;
+app.post("/validate-link", (req, res) => {
+  // Get the token from the body of the post request
+  const token = req.body.token;
+  // Decode the jwt with our secret (secretLink)
   const decodedData = jwt.verify(token, secretLink);
+  // Send the decoded data back to the front end which will be a object
   res.json(decodedData);
 });
 //--------------------------------------------------------//
