@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
+import "./VideoComponents.css";
+import CallInfo from "./CallInfo";
 
 const MainVideoPage = () => {
   // Get query string finder hook
@@ -23,7 +25,19 @@ const MainVideoPage = () => {
     };
     fetchDecodedToken();
   }, []);
-  return <h1>Welcome {apptInfo.professionalFullName}</h1>;
+  return (
+    <div className="main-video-page">
+      <div className="video-chat-wrapper">
+        <video id="large-feed" autoPlay controls playsInline></video>
+        <video id="own-feed" autoPlay controls playsInline></video>
+        {apptInfo.professionalsFullName ? (
+          <CallInfo apptInfo={apptInfo} />
+        ) : (
+          <></>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default MainVideoPage;
