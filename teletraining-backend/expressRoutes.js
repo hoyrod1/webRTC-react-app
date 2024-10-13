@@ -16,8 +16,8 @@ const secretLink = "ihadhdfH283JWT";
 app.get("/user-link", (req, res) => {
   // personal data for the end-users with the appointment //
   const apptData = {
-    professionalFullName: "Kaden St. Cloud Full Stack Web Developer",
-    apptDate: Date.now(),
+    professionalsFullName: "Kaden St. Cloud Full Stack Web Developer",
+    apptDate: Date.now() + 500000,
   };
 
   // personal data needs to be encoded for the url //

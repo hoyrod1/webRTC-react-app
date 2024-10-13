@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import "./VideoComponents.css";
 import CallInfo from "./CallInfo";
+import ChatWindow from "./ChatWindow";
 
 const MainVideoPage = () => {
   // Get query string finder hook
@@ -35,6 +36,7 @@ const MainVideoPage = () => {
         ) : (
           <></>
         )}
+        <ChatWindow />
       </div>
     </div>
   );
