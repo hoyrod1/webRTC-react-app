@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 // import { useDispatch, useSelector } from 'react-redux';
 import HangupButton from "./HangupButton";
-import socket from "../webRTCutilities/socketConnection";
+// import socket from "../webRTCutilities/socketConnection";
 import { useSelector } from "react-redux";
-import VideoButton from "./VideoButton/VideoButton";
-import AudioButton from "./AudioButton/AudioButton";
+// import VideoButton from "./VideoButton/VideoButton";
+// import AudioButton from "./AudioButton/AudioButton";
 
 const ActionButtons = ({ openCloseChat, smallFeedEl, largeFeedEl }) => {
   const callStatus = useSelector((state) => state.callStatus);
@@ -46,8 +46,8 @@ const ActionButtons = ({ openCloseChat, smallFeedEl, largeFeedEl }) => {
     <div id="menu-buttons" ref={menuButtons} className="row">
       {/* <i className="fa fa-microphone" style="font-size:48px;color:red"></i> */}
       <div className="left col-2">
-        <AudioButton smallFeedEl={smallFeedEl} />
-        <VideoButton smallFeedEl={smallFeedEl} />
+        {/* <AudioButton smallFeedEl={smallFeedEl} />
+        <VideoButton smallFeedEl={smallFeedEl} /> */}
       </div>
 
       <div className="col-8 text-center">
