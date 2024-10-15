@@ -42,10 +42,29 @@ const ActionButtons = ({ openCloseChat, smallFeedEl, largeFeedEl }) => {
     });
   }, []);
 
+  let micText;
+  if (callStatus.current === "idle") {
+    micText = "Join Audio";
+  } else if (callStatus.audio) {
+    micText = "mute";
+  } else {
+    micText = "Unmute";
+  }
+
   return (
     <div id="menu-buttons" ref={menuButtons} className="row">
       {/* <i className="fa fa-microphone" style="font-size:48px;color:red"></i> */}
       <div className="left col-2">
+        <div className="button mic d-inline-block">
+          <i className="fa fa-microphone"></i>
+          <div className="btn-text">{micText}</div>
+        </div>
+        <div className="button camera d-inline-block">
+          <i className="fa fa-video"></i>
+          <div className="btn-text">
+            {callStatus.video ? "Stop" : "Start"} Video
+          </div>
+        </div>
         {/* <AudioButton smallFeedEl={smallFeedEl} />
         <VideoButton smallFeedEl={smallFeedEl} /> */}
       </div>
@@ -75,7 +94,8 @@ const ActionButtons = ({ openCloseChat, smallFeedEl, largeFeedEl }) => {
       </div>
 
       <div className="center justify-center text-end col-2">
-        <HangupButton smallFeedEl={smallFeedEl} largeFeedEl={largeFeedEl} />
+        {/* <HangupButton smallFeedEl={smallFeedEl} largeFeedEl={largeFeedEl} /> */}
+        <HangupButton />
       </div>
     </div>
   );
